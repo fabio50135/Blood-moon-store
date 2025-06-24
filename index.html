@@ -99,6 +99,7 @@
             padding: 20px;
             text-align: center;
             transition: 0.3s;
+            position: relative;
         }
 
         .product:hover {
@@ -124,18 +125,17 @@
             margin-bottom: 15px;
         }
 
-        .product button {
-            background-color: #e60000;
-            color: white;
+        .favorite-btn {
+            background-color: transparent;
             border: none;
-            padding: 10px 20px;
             cursor: pointer;
-            border-radius: 5px;
-            transition: 0.3s;
+            font-size: 24px;
+            color: white;
+            transition: color 0.3s;
         }
 
-        .product button:hover {
-            background-color: #990000;
+        .favorite-btn.active {
+            color: #e60000;
         }
 
         .contact-page {
@@ -224,7 +224,6 @@
                 <li><a href="#home">Início</a></li>
                 <li><a href="#produtos">Produtos</a></li>
                 <li><a href="#contato">Faça seu Pedido</a></li>
-                <li><a href="#">Carrinho 🛒</a></li>
             </ul>
         </nav>
     </header>
@@ -239,33 +238,33 @@
             <img src="camisa_blood_moon_mockup_fundo_branco.png" alt="Camiseta Eclipse de Sangue">
             <h3>Camiseta Eclipse de Sangue</h3>
             <p>Uma peça sombria, elegante e poderosa. Feita para quem carrega o eclipse no peito.</p>
-            <button>Adicionar ao Carrinho</button>
+            <button class="favorite-btn" onclick="toggleFavorite(this)">❤️ Quero esse</button>
         </div>
 
         <div class="product">
             <img src="moletom_fantasma.jpg" alt="Moletom Fantasma da Noite">
             <h3>Moletom Fantasma da Noite</h3>
             <p>Conforto e mistério em uma peça que te envolve nas sombras.</p>
-            <button>Adicionar ao Carrinho</button>
+            <button class="favorite-btn" onclick="toggleFavorite(this)">❤️ Quero esse</button>
         </div>
 
         <div class="product">
             <img src="bone_lunar.jpg" alt="Boné Lunar Vermelho">
             <h3>Boné Lunar Vermelho</h3>
             <p>Estilo agressivo com toque vermelho sangue para marcar presença.</p>
-            <button>Adicionar ao Carrinho</button>
+            <button class="favorite-btn" onclick="toggleFavorite(this)">❤️ Quero esse</button>
         </div>
 
         <div class="product">
             <img src="pulseira_gothic.jpg" alt="Pulseira Gothic Eclipse">
             <h3>Pulseira Gothic Eclipse</h3>
             <p>Acessório perfeito para completar seu look dark com atitude.</p>
-            <button>Adicionar ao Carrinho</button>
+            <button class="favorite-btn" onclick="toggleFavorite(this)">❤️ Quero esse</button>
         </div>
     </section>
 
     <section class="contact-page" id="contato">
-        <h2>Faça seu Pedido🔥</h2>
+        <h2>Faça seu Pedido</h2>
         <p>Escolheu seu item? Envie seu pedido para a Blood Moon pelos nossos canais:</p>
 
         <div class="contact-info">
@@ -281,6 +280,18 @@
         © 2025 Blood Moon - Todos os direitos reservados.
     </footer>
 
+    <script>
+        function toggleFavorite(button) {
+            button.classList.toggle('active');
+            if (button.classList.contains('active')) {
+                button.innerHTML = "❤️ Selecionado";
+            } else {
+                button.innerHTML = "❤️ Quero esse";
+            }
+        }
+    </script>
+
 </body>
 </html>
+
 
